@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        paddding: 0;
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 100%;
+        height: 100vh;
+        background-color: teal;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #063d50;
+      }
+
+      .c {
+        color: white;
+        background-color: black;
+      }
+
+      .calculator {
+        border-radius: 40px;
+        box-shadow: 0 60px 80px rgba(0, 0, 0, 0.6),
+          0 45px 26px rgba(0, 0, 0, 0.14);
+        border: 3px solid #0077b3;
+        background-color: #09203f;
+        height: 500px;
+        width: 395px;
+        padding: 20px;
+      }
+
+      .calculator form input {
+        border: 3px solid darkslategray;
+        width: 60px;
+        height: 50px;
+        margin: 10px;
+        border-radius: 18px;
+        box-shadow: 3px 3px teal;
+        font-size:large;
+        font-weight: bold;
+        
+      }
+
+      .calculator form input:hover {
+        background-image: linear-gradient(to right, #0f0c29, #302b63);
+        color: white;
+      }
+
+      form .display {
+        display: flex;
+        justify-content: flex-end;
+        margin: 20px 0;
+      }
+
+      form .display input {
+        text-align: right;
+        flex: 1;
+      }
+
+      form input.equal {
+        width: 150px;
+      }
+
+
+
+      @media screen and (max-width: 765px) {
+        .calculator {
+          height: 500px;
+          width: 360px;
+          padding: 10px;
+          border-radius: 30px;
+        }
+        .calculator form input {
+          border: 3px solid darkslategray;
+          width: 50px;
+          height: 50px;
+          margin: 10px;
+          border-radius: 18px;
+          box-shadow: 3px 3px teal;
+          font-size: large;
+          font-weight: bold;
+        }
+        form input.equal {
+        width: 150px;
+      }
+      }
+    </style>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="calculator">
+        <form>
+          <div class="display">
+            <input type="text" name="display" class="c" placeholder="" ; />
+          </div>
+          <div>
+            <input
+              type="button"
+              class="restore c"
+              value="AC"
+              onclick="display.value=''"
+            />
+            <input
+              type="button"
+              class="c"
+              value="Del"
+              onclick="display.value"
+              ="display.value.toString().slice(0,-1)"
+            />
+            <input
+              type="button"
+              class="c"
+              value="."
+              onclick="display.value+='.'"
+            />
+            <input
+              type="button"
+              class="c"
+              value="/"
+              onclick="display.value+='/'"
+            />
+          </div>
+          <div>
+            <input
+              type="button"
+              class="c"
+              value="7"
+              onclick="display.value+='7' "
+            />
+            <input
+              type="button"
+              class="c"
+              value="8"
+              onclick="display.value+='8' "
+            />
+            <input
+              type="button"
+              class="c"
+              value="9"
+              onclick="display.value+='9' "
+            />
+            <input
+              type="button"
+              class="c"
+              value="*"
+              onclick="display.value+='*' "
+            />
+          </div>
+          <div>
+            <input
+              type="button"
+              class="c"
+              value="4"
+              onclick="display.value+='4' "
+            />
+            <input
+              type="button"
+              class="c"
+              value="5"
+              onclick="display.value+='5' "
+            />
+            <input
+              type="button"
+              class="c"
+              value="6"
+              onclick="display.value+='6' "
+            />
+            <input
+              type="button"
+              class="c"
+              value="-"
+              onclick="display.value+='-' "
+            />
+          </div>
+          <div>
+            <input
+              type="button"
+              class="c"
+              value="1"
+              onclick="display.value+='1' "
+            />
+            <input
+              type="button"
+              class="c"
+              value="2"
+              onclick="display.value+='2' "
+            />
+            <input
+              type="button"
+              class="c"
+              value="3"
+              onclick="display.value+='3' "
+            />
+            <input
+              type="button"
+              class="c"
+              value="+"
+              onclick="display.value+='+' "
+            />
+          </div>
+          <div>
+            <input type="button" class="c" value="00" />
+            <input
+              type="button"
+              class="c"
+              value="0"
+              onclick="display.value+='0'"
+            />
+            <input
+              type="button"
+              value="="
+              class="equal c"
+              onclick="display.value=eval(display.value)"
+            />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      document.querySelector(".equal").addEventListener("click", function () {
+        // const randColor = Math.floor(Math.random() * 16777215).toString(16);
+        // document.querySelector(".container").style.backgroundColor =
+        //   "#" + randColor;
+
+        const randcolor = Math.floor(Math.random() * 16777215).toString(16);
+        document.querySelector(".calculator").style.backgroundColor =
+          "#" + randcolor;
+
+        const allBtn = document.querySelectorAll(".c");
+
+        allBtn.forEach((btn) => {
+          const randCcolor = Math.floor(Math.random() * 16777215).toString(16);
+          btn.style.backgroundColor = "#" + randCcolor;
+        });
+      });
+    </script>
+    <!-- <script src="script.js"><script/> -->
+  </body>
+</html>
